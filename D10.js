@@ -92,12 +92,12 @@ console.log(me)
 */
 console.log("*********** 1  ************* ")
 
-const dice = (n) => {
-  const randomN = Math.floor(Math.random() * n + 1)
+const dice = () => {
+  const randomN = Math.floor(Math.random() * 6 + 1)
   return randomN
 
 }
-console.log(dice(6))
+console.log(dice())
 
 
 /* ESERCIZIO 2
@@ -139,8 +139,19 @@ console.log(splitMe("divide questa frase!"))
 */
 console.log("*********** 4  ************* ")
 
+const deleteOne = (str, bool) => {
+  let newStr
+  if (bool === true) {
+    newStr = str.slice(1)
+    return newStr
+  }
+  else {
+    newStr = str.slice(0, -1)
 
-
+    return newStr
+  }
+}
+console.log(deleteOne("myName", false))
 
 
 
@@ -151,15 +162,61 @@ console.log("*********** 4  ************* ")
 */
 console.log("*********** 5  ************* ")
 
+const onlyLetters = (str) => {
+  const lettersTofilter = str.replace(/[0-9]/g, '');
+  return lettersTofilter
+}
+
+console.log(onlyLetters("this text have 12312Ze12312r1o230 numbers"))
+
+
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
 console.log("*********** 6  ************* ")
 
+const isThisAnEmail = (mail) => {
+  let lettersFilters = /^\S+@\S+\.\S+$/
+  return lettersFilters.test(mail)
+}
+console.log(isThisAnEmail("carlos@gmail.com"))
+
+
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
 console.log("*********** 7  ************* ")
+const whatDayIsIt = () => {
+  const dayofweek = new Date().getDay()
+  switch (dayofweek) {
+    case 0:
+      return "domenica"
+      break;
+    case 1:
+      return "lunedi"
+      break;
+    case 2:
+      return "martedi"
+      break;
+    case 3:
+      return "mercoledi"
+      break;
+    case 4:
+      return "giovedi"
+      break;
+    case 5:
+      return "vernerdi"
+      break;
+    case 6:
+      return "sabato"
+      break;
+
+    default:
+      break;
+  }
+
+}
+console.log(whatDayIsIt())
 
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
@@ -175,19 +232,62 @@ console.log("*********** 7  ************* ")
 */
 console.log("*********** 8  ************* ")
 
+const rollTheDices = (num) => {
+
+}
+
+
+
+
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
 console.log("*********** 9  ************* ")
 
+const howManyDays = (giorno) => {
+
+  const giornoPrima = new Date(giorno)
+  const giornoOra = new Date()
+  let quantoTempo = giornoOra.getTime() - giornoPrima.getTime()
+  quantoTempo = Math.floor(quantoTempo / (1000 * 3600 * 24))
+
+  return quantoTempo
+}
+console.log(howManyDays("12/10/2022"))
+
+
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
 
+
+
+
+
+
+console.log("*********** 10  ************* ")
+
+const isTodayMyBirthday = (bday, bmonth) => {
+  const todayDay = new Date().getDate()
+  const todayMonth = new Date().getMonth()
+
+  if (bday === todayDay && (bmonth - 1) === todayMonth) {
+    return "today is bday"
+  }
+  else {
+    return "nope"
+  }
+
+}
+console.log(isTodayMyBirthday(16, 12))
+
+
 // Arrays & Oggetti
 
 // NOTA: l'array "movies" usato in alcuni esercizi è definito alla fine di questo file
-console.log("*********** 10  ************* ")
+
+
+
 
 /* ESERCIZIO 11
   Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
@@ -195,10 +295,29 @@ console.log("*********** 10  ************* ")
 */
 console.log("*********** 11  ************* ")
 
+// deleteProp = (obj, str) => {
+//   obj.forEach(element => {
+//     delete element.str
+//     console.log()
+//   });
+// }
+// console.log(deleteProp(movies, "Title"))
+
+
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
 console.log("*********** 12  ************* ")
+
+function newestMovie(params) {
+
+
+
+
+
+}
+
+
 
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
@@ -277,27 +396,27 @@ console.log("*********** 26  ************* ")
 
 /* ESERCIZIO 27
   Crea una funzione chiamata "halfTree" che riceve un numero come parametro e costruisce un mezzo albero di "*" (asterischi) dell'altezza fornita.
-
+ 
   Esempio:
   halfTree(3)
-
+ 
   *
   **
   ***
-
+ 
 */
 console.log("*********** 27  ************* ")
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
-
+ 
   Esempio:
   tree(3)
-
+ 
     *
    ***
   *****
-
+ 
 */
 console.log("*********** 28  ************* ")
 
@@ -423,3 +542,16 @@ const movies = [
   },
 ]
 console.log("*********** 29  ************* ")
+
+
+
+
+
+
+deleteProp = (obj, string) => {
+  obj.forEach((element, index) => {
+    delete element.Title
+  });
+  return obj
+}
+console.log(deleteProp(movies, "Title"))
