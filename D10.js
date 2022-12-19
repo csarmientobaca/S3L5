@@ -350,9 +350,22 @@ console.log(whatDayIsIt())
 console.log("*********** 8  ************* ")
 
 const rollTheDices = (num) => {
+  let sum = 0
+  const values = []
+  const ritorna = {}
+  for (let i = 0; i < num; i++) {
+    values[i] = dice()
+  }
 
+  for (let i = 0; i < values.length; i++) {
+    sum = sum + values[i]
+  }
+  ritorna.sum = sum
+  ritorna.values = values
+
+  return ritorna
 }
-
+console.log(rollTheDices(3))
 
 
 
@@ -377,11 +390,6 @@ console.log(howManyDays("12/10/2022"))
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
 
-
-
-
-
-
 console.log("*********** 10  ************* ")
 
 const isTodayMyBirthday = (bday, bmonth) => {
@@ -389,10 +397,10 @@ const isTodayMyBirthday = (bday, bmonth) => {
   const todayMonth = new Date().getMonth()
 
   if (bday === todayDay && (bmonth - 1) === todayMonth) {
-    return "today is bday"
+    return true
   }
   else {
-    return "nope"
+    return false
   }
 
 }
@@ -423,7 +431,7 @@ function deleteProp(obj, string) {
 }
 
 console.log(deleteProp(movies, "Title"))
-
+console.log("***************STILL WORKING ON**************")
 
 
 /* ESERCIZIO 12
@@ -431,10 +439,24 @@ console.log(deleteProp(movies, "Title"))
 */
 console.log("*********** 12  ************* ")
 
-function newestMovie(params) {
 
+const newestMovie = (obj) => {
+  const oldMovie = { Year: "3000" }
 
+  for (let i = 0; i < obj.length; i++) {
+    if (parseInt(obj[i].Year) < parseInt(oldMovie.Year)) {
+      Object.assign(oldMovie, obj[i])
+
+    }
+    else {
+
+    }
+  }
+  return oldMovie
 }
+console.log(newestMovie(movies))
+
+
 
 
 
@@ -454,6 +476,17 @@ console.log("numero di movies:", countMovies(movies))
   Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
 */
 console.log("*********** 14  ************* ")
+
+const onlyTheYears = movies.map(anni => {
+  return anni.Year
+})
+
+
+
+console.log(onlyTheYears)
+
+
+
 
 /* ESERCIZIO 15
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
