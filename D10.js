@@ -441,18 +441,15 @@ console.log("*********** 12  ************* ")
 
 
 const newestMovie = (obj) => {
-  const oldMovie = { Year: "3000" }
+  const newMovie = { Year: "0" }
 
   for (let i = 0; i < obj.length; i++) {
-    if (parseInt(obj[i].Year) < parseInt(oldMovie.Year)) {
-      Object.assign(oldMovie, obj[i])
-
-    }
-    else {
+    if (parseInt(obj[i].Year) > parseInt(newMovie.Year)) {
+      Object.assign(newMovie, obj[i])
 
     }
   }
-  return oldMovie
+  return newMovie
 }
 console.log(newestMovie(movies))
 
