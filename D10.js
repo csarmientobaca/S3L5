@@ -423,15 +423,22 @@ console.log("*********** 11  ************* ")
 
 
 
-function deleteProp(obj, string) {
-  obj.forEach((element) => {
-    delete element.Title
+// const deleteProp = (obj, str) => {
+//   for (let i = 0; i < obj.length; i++) {
+
+//     delete obj[i][str]
+
+//   }
+//   return obj
+// }
+function deleteProp(obj, str) {
+  obj.forEach(element => {
+    delete element[str]
+
   });
   return obj
 }
-
 console.log(deleteProp(movies, "Title"))
-console.log("***************STILL WORKING ON**************")
 
 
 /* ESERCIZIO 12
@@ -490,15 +497,40 @@ console.log(onlyTheYears)
 */
 console.log("*********** 15  ************* ")
 
+const onlyInLastMillennium = movies.filter(movie => {
+  return parseInt(movie.Year) < 2000
+})
+
+console.log(onlyInLastMillennium)
+
+
+
 /* ESERCIZIO 16
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
 console.log("*********** 16  ************* ")
 
+
+const sumAllTheYears = movies.reduce((total, movie) => {
+  console.log(movie.Year)
+  console.log(total)
+
+  return total + parseInt(movie.Year)
+}, 0)
+
+console.log(sumAllTheYears)
+
+
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
 console.log("*********** 17  ************* ")
+
+
+
+
+
+// console.log(searchByTitle)
 
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
@@ -506,9 +538,21 @@ console.log("*********** 17  ************* ")
 */
 console.log("*********** 18  ************* ")
 
+
+
+
+
+// console.log(searchAndDivide)
+
+
+
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+
+
+
+
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 console.log("*********** 19  ************* ")
@@ -518,34 +562,106 @@ console.log("*********** 19  ************* ")
 */
 console.log("*********** 20  ************* ")
 
+const someId = () => {
+  const containerHtml = document.getElementById("container")
+
+
+}
+
+
+
+
+
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
 console.log("*********** 21  ************* ")
+
+const selectAlltd = () => {
+  const tdHtml = document.querySelectorAll("td")
+
+}
+
+
+
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
 console.log("*********** 22  ************* ")
 
+const writeTd = () => {
+  for (let i = 0; i < array.length; i++) {
+    const tdText = document.querySelectorAll("td")
+
+  }
+
+
+}
+
+
+
+
+
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 console.log("*********** 23  ************* ")
 
+const bgRosso = () => {
+  const link = document.querySelectorAll("a")
+
+  for (let i = 0; i < link.length; i++) {
+    link[i].style.backgroundColor = "red"
+
+  }
+}
+
+
+
+
+
+
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 console.log("*********** 24  ************* ")
+const aggiunge = () => {
+  const newEle = document.createElement("span")
+
+  document.querySelector("#myList").appendChild(newEle)
+}
+
+
+
+
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 console.log("*********** 25  ************* ")
 
+const cleanEle = () => {
+  const whatToClean = document.querySelector("#myList")
+  whatToClean.textContent = ""
+}
+
+
+
+
+
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+const addClasTest = () => {
+  const selecTr = document.querySelectorAll("tr")
+
+  for (let i = 0; i < array.length; i++) {
+    selecTr[i].classList.add("test")
+  }
+}
+
 
 // [EXTRA] JS Avanzato
 console.log("*********** 26  ************* ")
